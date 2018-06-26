@@ -1,0 +1,118 @@
+table 
+{
+	border-collapse: collapse;
+	width: 50%;
+}
+
+th, td 
+{ 
+	padding: 8px;
+}
+
+th 
+{
+	
+	background-color: #ff8000;
+   color: black;
+	font-weight: bold;
+	text-align:left;	
+	font-size 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+tr:nth-child(even){background-color: #ffb366}
+tr:nth-child(odd){background-color:#ffe6cc}
+
+body 
+{
+	background: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	overflow:auto;
+}
+
+#one
+{
+		
+}
+div.button
+{
+	position: relative;
+	left: 25%;
+	overflow: auto;
+}
+
+div.addrelative 
+{
+    position: relative;
+    left: 25%;
+    overflow: auto;
+}
+
+div.searchrelative
+{
+	position: relative;
+	left:48%;
+	font-family: 'Open Sans' : sans-serif;
+	overflow: auto;
+}
+
+div.tablerelative
+{
+	position: relative;
+	left:25%;
+	overflow: auto;
+}
+
+input[type=text] 
+{
+	padding:5px; 
+	border-width:1px; 
+	border-radius: 8px;
+	border-color: #ff8000;
+}
+
+input[type="text"]:focus
+{
+	background-color:#ffe6cc;
+}
+
+input[type="submit"]:hover 
+{
+	background: #fff;
+	color:  #ff8000;
+	border: 1px solid #ff8000;
+	cursor: pointer;
+}
+
+input[type=submit] 
+{
+	background: #ff8000;
+	color: #fff;
+	border: 1px solid #ff8000;
+	border-radius: 5px;
+	padding: 5px;
+	width: 7%;
+	transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+}
+
+button {
+	font-family: 'Open Sans', sans-serif;
+	background: #ff8000;
+	color: #fff;
+	border: 1px solid #ff8000;
+	border-radius: 5px;
+	padding: 3px;
+}
+
+button:hover {
+	background: #fff;
+	color: #ff8000;
+	border: 1px solid #ff8000;
+	cursor: pointer;
+}

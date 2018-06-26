@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Northwest Community Center</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<style>
+			img
+			{
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 15%;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="../icons/nwicon.png">
+		<div id="login_div" class="main-div">
+			<h3>Welcome to Northwest Community MyCard Services</h3>
+			<input type="email" placeholder="Email" id="email_field" />
+			<input type="password" placeholder="Password" id="password_field" />
+			<button onclick="login()" id="loginBtn">Login</button>
+			<br>
+			<a href='/user/forgotpassword.php'>Forgot your password?</a>
+		</div>
+
+		<div id="user_div" class="loggedin-div">
+			<h3>Welcome User</h3>
+			<p id="user_para">Welcome to Refugee MyCard services. You're currently logged in.</p>
+			<button onclick="logout()">Logout</button>
+			<br>
+			<button onclick="location.href = '/currentversion.php';" id="myButton" class="float-left submit-button" >Access database</button>
+			<br>
+			<button onclick="location.href = '/resetpassword.php';" id="myButton2" class="float-left submit-button" >Reset password</button>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+		<script>
+  		// Initialize Firebase
+  		var config = {
+    		apiKey: "AIzaSyC-bT_S5pW2DtcdHp0uonvfKGKoZFqbkHQ",
+    		authDomain: "dblogin-13589.firebaseapp.com",
+    		databaseURL: "https://dblogin-13589.firebaseio.com",
+    		projectId: "dblogin-13589",
+    		storageBucket: "dblogin-13589.appspot.com",
+    		messagingSenderId: "689944907277"
+ 		};
+		firebase.initializeApp(config);
+		</script>
+		<script src="index.js"></script>
+
+		<!--Signs user out if they close the browser-->	
+		<script>
+			firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  			.then(function() {
+    			return firebase.auth().signInWithEmailAndPassword(email, password);
+ 		 	})
+  			.catch(function(error) {
+    			// Handle Errors here.
+    			var errorCode = error.code;
+    			var errorMessage = error.message;
+  			});
+		</script>
+
+		<!-- Allows the user to press enter to login while they are on the password field instead of having to press the button kreygasm -->
+	   <script>
+			var input = document.getElementById("password_field");
+			input.addEventListener("keyup", function(event) {
+   			event.preventDefault();
+    			if (event.keyCode === 13) {
+        			document.getElementById("loginBtn").click();
+   			}
+			});
+		</script>
+	</body>
+</html>

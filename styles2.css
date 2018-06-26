@@ -1,0 +1,152 @@
+body 
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	background-position: center top;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	margin-left: 125px;
+	margin-right: 125px;
+	overflow: auto;
+}
+
+table 
+{
+	border-collapse: collapse;
+	width:100%;	
+}
+
+th, td 
+{ 
+	padding: 8px;
+}
+
+th 
+{
+	height: 50px;	
+	background-color: #ff8000;
+   color: black;
+	font-weight: bold;
+	text-align:left;	
+	font-size 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+tr:nth-child(even){background-color: #ffb366}
+tr:nth-child(odd){background-color:#ffe6cc}
+
+img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 15%;
+}
+
+#wrapper
+{
+	width:auto;
+	min-width: 100%;
+	height:auto;
+	min-height: 100%;
+}
+
+#wrapper>div.image
+{
+	position:relative;
+	overflow: auto;
+}
+
+#wrapper>div.button
+{
+	position: relative;
+	overflow: auto;
+}
+
+#wrapper>div.addrelative 
+{
+    position: relative;
+    overflow: auto;
+}
+
+#wrapper>div.searchrelative
+{
+	position: relative;
+	left:101%;
+	font-family: 'Open Sans' : sans-serif;
+	overflow: auto;
+}
+
+
+#wrapper>div.tablerelative
+{
+	position: relative;
+	overflow: auto;
+}
+
+input[type=text] 
+{
+	padding:5px; 
+	border-width:1px; 
+	border-radius: 8px;
+	border-color: #ff8000;
+}
+
+input[type="text"]:focus
+{
+	background-color:#ffe6cc;
+}
+
+input[type="submit"]:hover 
+{
+	background: #fff;
+	color:  #ff8000;
+	border: 1px solid #ff8000;
+	cursor: pointer;
+}
+
+input[type=submit] 
+{
+	background: #ff8000;
+	color: #fff;
+	border: 1px solid #ff8000;
+	border-radius: 5px;
+	padding: 5px;
+	transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	overflow: auto;
+}
+
+button 
+{
+	font-family: 'Open Sans', sans-serif;
+	background: #ff8000;
+	color: #fff;
+	border: 1px solid #ff8000;
+	border-radius: 5px;
+	padding: 3px;
+}
+
+button:hover 
+{
+	background: #fff;
+	color: #ff8000;
+	border: 1px solid #ff8000;
+	cursor: pointer;
+}
+
+a:link
+{
+	color: #666666;
+}
+
+a:visited
+{
+	color: #666666;
+}
+
+a:hover
+{
+	color: #ff8000;
+}
