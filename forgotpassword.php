@@ -9,19 +9,20 @@
 		<input type="text" id="email_field" maxlength="90" size="30" /> <br>
 		<br>
 		<button onclick="forgotpass()" id="forgotButton">Send</button>
-		<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
 		<script>
   		// Initialize Firebase
   		var config = {
-    		apiKey: "AIzaSyDKjsEDFbAezJnvIaggsKjiNrNaNRHXJ_k",
-    		authDomain: "refugeedblogin.firebaseapp.com",
-    		databaseURL: "https://refugeedblogin.firebaseio.com",
-    		projectId: "refugeedblogin",
-    		storageBucket: "refugeedblogin.appspot.com",
-    		messagingSenderId: "916804553903"
-		};
+    		apiKey: "AIzaSyC-bT_S5pW2DtcdHp0uonvfKGKoZFqbkHQ",
+    		authDomain: "dblogin-13589.firebaseapp.com",
+    		databaseURL: "https://dblogin-13589.firebaseio.com",
+    		projectId: "dblogin-13589",
+    		storageBucket: "dblogin-13589.appspot.com",
+    		messagingSenderId: "689944907277"
+ 		 };
   		firebase.initializeApp(config);
 		</script>
+
 		<!-- Reset function that sends an email to the currently logged in user to reset their password hehe -->
 		<script>
 		function forgotpass()
