@@ -79,10 +79,23 @@ if (strlen($Id)) {
 	//header('Location: jamesPage.php');
 }
  */
+
+if(isset($_POST['Add']))
+{
+	header("Location: addChild.php?parID=$ID1");
+}
+
 ?>
 <!-- back -->
 <form method="post" action="currentversion.php?go" id="searchform">
-<input type="submit" name="submit"value="Back to Homepage" />
+<input type="submit" name="submit"value="Back to Homepage"/>
+
+
+</form>
+<form method="POST">
+	<td>
+		<input type="submit" name="Add" value="Add Child" />
+	</td>
 </form>
 
 <!-- Display table data. -->

@@ -79,6 +79,7 @@ $f15=mysql_result($result,$i,"Notes");
 $f16=mysql_result($result,$i,"DiaperSize");
 $f17=mysql_result($result,$i,"Pregnant");
 $f18=mysql_result($result,$i,"RegistrationDate");
+$f19=mysql_result($result,$i,"Race");
 
 $i = 0;
 while ($i < $num3)
@@ -115,6 +116,10 @@ while ($i < $num3)
 <tr>
 	<td> <font face="Trebuchet MS, Helvetica, sans-serif"><b>Last Name</b></font> </td>
 		  <td> <font face="Arial, Helvetica, sans-serif"><?php echo $f4; ?></font> </td>
+</tr>
+<tr>
+        <td> <font face="Trebuchet MS, Helvetica, sans-serif"><b>Race</b></font> </td>
+                  <td> <font face="Arial, Helvetica, sans-serif"><?php echo $f19; ?></font> </td>
 </tr>
 <tr>
 	<td> <font face="Trebuchet MS, Helvetica, sans-serif"><b>Country of Origin</b></font> </td>

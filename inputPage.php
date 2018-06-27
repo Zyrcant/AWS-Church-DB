@@ -76,6 +76,8 @@ $notes = htmlentities($_POST['notes']);
 $pregnant = htmlentities($_POST['pregnant']);
 $registration = htmlentities($_POST['date']);
 
+$race = htmlentities($_POST['race']);
+
 //gets name for deletion
 $delname = $_POST['delname'];
 //gets name for search
@@ -98,7 +100,7 @@ if (isset($_POST['Add']))
 	}
 	else
 	{
-		AddEmployee($connection, $employee_name, $employee_address, $lastname, $origin, $phone, $number_family, $visits_before, $Id, $num_men, $num_women, $num_boys, $num_girls, $notes, $pregnant, $registration);
+		AddEmployee($connection, $employee_name, $employee_address, $lastname, $origin, $phone, $number_family, $visits_before, $Id, $num_men, $num_women, $num_boys, $num_girls, $notes, $pregnant, $registration, $race);
 	echo $employee_name . " " . $lastname . " has been added";
 		header("Location: addChild.php?parID=$Id");
 	}
@@ -134,8 +136,35 @@ if (isset($_POST['Add']))
 	</td>
 	<td>
 		Date of Registration (MM/DD/YYYY)<br>
-		<input type="date" name="date" maxlength="90" size="30"/><br>
+		<input id="datefield" type="date" name="date" max="2018-12-31" maxlength="90" size="30"/><br>
+		<!--Sets the max date a person can register to the current date -->
+		<script>
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0
+			var yyyy = today.getFullYear();
+			if(dd<10){
+				dd='0'+dd
+			}
+			if(mm<10){
+				mm='0'+mm
+			}
+			today = yyyy+'-'+mm+'-'+dd;
+			document.getElementById("datefield").setAttribute("max", today);
+		</script>
 	</td>
+        <td>
+	Race<br>
+        <select name="race">
+                <option value="White">White</option>
+                <option value="Asian">Asian</option>
+                <option value="Hispanic">Hispanic</option>
+                <option value="Black">Black</option>
+                <option value="American Indian">American Indian</option>
+                <option value="Pacific Islander">Pacific Islander</option>
+                <option value="Other">Other</option>
+        </select><br>
+        </td>
 	<td>
 	<!--
 		  Number of Family Members (0, 1, 2...)<br>
@@ -302,7 +331,7 @@ mysqli_close($connection);
 <?php
 
 /* Add an employee to the table. */
-function AddEmployee($connection, $name, $address, $lastName, $originCountry, $phone, $numberFamily, $numberVisits, $id, $men, $women, $boys, $girls, $notes, $pregnant, $date) {
+function AddEmployee($connection, $name, $address, $lastName, $originCountry, $phone, $numberFamily, $numberVisits, $id, $men, $women, $boys, $girls, $notes, $pregnant, $date, $race) {
 	$n = mysqli_real_escape_string($connection, $name);
 	$a = mysqli_real_escape_string($connection, $address);
 
@@ -320,8 +349,9 @@ function AddEmployee($connection, $name, $address, $lastName, $originCountry, $p
 	$note = mysqli_real_escape_string($connection, $notes);
 	$preg = mysqli_real_escape_string($connection, $pregnant);
 	$dat = mysqli_real_escape_string($connection, $date);
+	$rac = mysqli_real_escape_string($connection, $race);
 	//echo $d; //debug
-	$query = "INSERT INTO `Employees7` (ID, Name, Address, LastName, OriginCountry, Phone, NumberOfFamily, VisitsBefore, NumMen, NumWomen, NumBoys, NumGirls, Notes, Pregnant, RegistrationDate) VALUES ('$i', '$n', '$a', '$l', '$o', '$p', '$numf', '$numv', '$m', '$w', '$b', '$g', '$note', '$preg', '$dat');";
+	$query = "INSERT INTO `Employees7` (ID, Name, Address, LastName, OriginCountry, Phone, NumberOfFamily, VisitsBefore, NumMen, NumWomen, NumBoys, NumGirls, Notes, Pregnant, RegistrationDate, Race) VALUES ('$i', '$n', '$a', '$l', '$o', '$p', '$numf', '$numv', '$m', '$w', '$b', '$g', '$note', '$preg', '$dat', '$rac');";
 	if(!mysqli_query($connection, $query)) echo("<p>Error adding employee data.</p>");
 
         $query2 = "INSERT INTO Months (ID, January, Febuary, March, April, May, June, July, August, September, October, November, December) VALUES ('$i', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no');";
@@ -350,6 +380,7 @@ function VerifyEmployeesTable($connection, $dbName) {
 			`Notes` varchar(200) DEFAULT NULL,
 			`Pregnant` varchar(90) DEFAULT NULL,
 			`RegistrationDate` varchar(90) DEFAULT NULL,
+                        `Race` varchar(90) DEFAULT NULL,
 			PRIMARY KEY (`ID`),
 			UNIQUE KEY `ID_UNIQUE` (`ID`)
 		) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1";

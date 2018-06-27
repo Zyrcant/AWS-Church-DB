@@ -36,6 +36,7 @@ else {
 </script>
 <body style="display:none">
 <!-- End user authentication -->
+
 <h1>Add a Child</h1>
 
 
@@ -79,7 +80,22 @@ $num = mysql_num_rows($result);
 <form action="<?PHP echo $_SERVER['SCRIPT_NAME'] ?>" method="POST">   
 	<input type="hidden" name="parentID" maxlength="90" value='<?=$ID1?>' readonly size="30" >
 	<input type="text" name="boyname" maxlength="90" size="30"/>
-	<input type="date" name="bday"/>
+	<input id="datefield" type="date" name="bday" max="2018-12-31"/>
+	<!--Sets the max date a child can be born to the current date -->
+	<script>
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0
+	var yyyy = today.getFullYear();
+ 	if(dd<10){
+		dd='0'+dd
+	} 
+	if(mm<10){
+		mm='0'+mm
+	} 
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("datefield").setAttribute("max", today);
+	</script>
 	<select name="gender">
 		<option value="Male">Male</option>
 		<option value="Female">Female</option>

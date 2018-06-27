@@ -218,6 +218,7 @@ function VerifyEmployeesTable($connection, $dbName) {
 		  `Notes` varchar(200) DEFAULT NULL,
 		  `Pregnant` varchar(90) DEFAULT NULL,
 		  `RegistrationDate` varchar(90) DEFAULT NULL,
+                  `Race` varchar(90) DEFAULT NULL,
 		  PRIMARY KEY (`ID`),
 		  UNIQUE KEY `ID_UNIQUE` (`ID`)
 		  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1";

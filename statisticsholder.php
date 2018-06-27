@@ -76,14 +76,6 @@ $boy_age_arr = array();
 $girl_age_arr = array();
 $month_arr = array();
 
-$white = 0;
-$asian = 0;
-$hispanic = 0;
-$black = 0;
-$american_indian = 0;
-$pacific_islander = 0;
-$other = 0;
-
 //COUNTS CHILDREN DATA
 while($query_data = mysql_fetch_row($child_result))
 {
@@ -116,16 +108,8 @@ while($query_data = mysql_fetch_row($result))
 {
 	$men = $query_data[8];
 	$women = $query_data[9];
-	$race = $query_data[15];
         if (is_numeric($men)) $num_men += (int) $men;
         if (is_numeric($women)) $num_women += (int) $women;
-	if ($race=="White") $white += 1;
-	if ($race == "Asian") $asian += 1;
-	if ($race == "Hispanic") $hispanic += 1;
-	if ($race == "Black") $black += 1;
-	if ($race == "American Indian") $american_indian += 1;
-	if ($race == "Pacific Islander") $pacific_islander += 1;
-	if ($race == "Other") $other += 1;
 }
 
 /* COUNTS NUMBER OF FAMLIES COME EACH MONTH */
@@ -180,15 +164,6 @@ echo "September: " . $month_arr[9] . "<br>";
 echo "October: " . $month_arr[10] . "<br>";
 echo "November: " . $month_arr[11] . "<br>";
 echo "December: " . $month_arr[12] . "<br>";
-
-echo "<br><b>Races:</b><br>";
-echo "White: " . $white . "<br>";
-echo "Asian: " . $asian . "<br>";
-echo "Hispanic: " . $hispanic . "<br>";
-echo "Black: " . $black . "<br>";
-echo "Native American: " . $american_indian . "<br>";
-echo "Pacific Islander: " . $pacific_islander . "<br>";
-echo "Other: " . $other . "<br>";
 
 $i = 0;
 echo "<br>";

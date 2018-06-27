@@ -72,7 +72,7 @@ if(isset($_POST['deleted']))
 	$id=$_GET['idd'];
 	$query = "DELETE FROM Employees7 WHERE ID='$id'";
 	$query2 = "DELETE From Children WHERE parentID='$id'";
-        $query3 = "DELETE From Months WHERE parentID='$id'";
+        $query3 = "DELETE From Months WHERE ID='$id'";
 	$result=mysqli_query($connection, $query);
 	$result2=mysqli_query($connection, $query2);
         $result3=mysqli_query($connection, $query3);
