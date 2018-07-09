@@ -99,7 +99,7 @@ if(isset($_POST['Add']))
 </form>
 
 <!-- Display table data. -->
-<table border="1" cellpadding="2" cellspacing="2">
+<table border="0" cellpadding="2" cellspacing="2">
 	<tr>
 		<th>Name</th>
 		<th>Birthday</th>
