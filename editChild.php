@@ -200,7 +200,7 @@ if(isset($_POST['editchild']))
 			<td><?php echo $f2; ?></td>
 			<td><?php echo $f3; ?></td>
 			<td><?php echo $f4; ?></td>
-			<?php echo "<td> <a href='delete.php?idd=$f0&childname=$f1'> <i class='fa fa-trash' aria-hidden='true'></i> </a> </td>";?>	 
+			<?php echo "<td> <a href='delete.php?idd=$f0&childname=$f1&genderofchild=$f3'> <i class='fa fa-trash' aria-hidden='true'></i> </a> </td>";?>	 
 		</tr>
 		<?php
 		$i++;

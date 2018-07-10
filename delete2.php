@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(user => {
 <body style="display:none">
 <!-- End user authentication -->
 
-<h1 align="center">Delete me maybe?</h1>
+<h1 align="center">Are you sure you want to delete this record?</h1>
 
 
 <?php

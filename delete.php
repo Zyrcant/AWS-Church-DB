@@ -40,13 +40,13 @@ firebase.auth().onAuthStateChanged(user => {
 <body style="display:none">
 <!-- End user authentication -->
 
-<h1 align="center">Delete me maybe?</h1>
+<h1 align="center">Delete a Child</h1>
 
 
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 $id = $_GET['idd'];
 //debug
@@ -59,6 +59,10 @@ if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect
 
 $database = mysqli_select_db($connection, DB_DATABASE);
 
+
+$db=mysql_connect  ("tutorial-db-instance.cl2lz81okayq.us-east-2.rds.amazonaws.com", "tutorial_user",  "password") or die ('I cannot connect to the databas    e  because: ' . mysql_error());
+$mydb=mysql_select_db("sample");
+
 //deletes the person
 DeletePerson($connection, $id);
 //deletesomeone($connection, $id);
@@ -68,10 +72,33 @@ DeletePerson($connection, $id);
 
 if(isset($_POST['deleted']))
 {
+	//A child died
 	$id=$_GET['idd'];
 	$getname=$_GET['childname'];
-	$query2 = "DELETE From Children WHERE parentID='$id' AND name = '$getname'";
-	$result2=mysqli_query($connection, $query2);
+	$query = "DELETE From Children WHERE parentID='$id' AND name = '$getname'";
+	$result2=mysqli_query($connection, $query);
+	//Decrement children when deleted
+	$query2 = "SELECT * FROM Employees7 WHERE ID='$id'";
+   $resultsss=mysql_query($query2);
+	$pls = 0;
+	$g = $_GET['genderofchild'];
+	$n1 = mysql_result($resultsss, $pls, "NumGirls");
+	$n2 = mysql_result($resultsss, $pls, "NumBoys");
+   if($g == "Female")
+   {
+      $n1 -= 1;
+      $query3 = "UPDATE `Employees7` SET NumGirls ='$n1' WHERE ID='$id'";
+   }
+   else
+   {
+		$n2 -= 1;
+      $query3 = "UPDATE `Employees7` SET NumBoys ='$n2' WHERE ID='$id'";
+   }
+	if(!mysqli_query($connection, $query3))
+	{
+		echo("Error updating num cildren");
+	}
+
 	array_map('unlink', glob("uploads/" . $id .".jpg"));
 	header('Location: currentversion.php');
 	exit;
