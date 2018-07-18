@@ -30,12 +30,18 @@ firebase.auth().onAuthStateChanged(user => {
 </script>
 <body style="display:none">
 <!-- End user authentication -->
-
+<!-- back -->
+<form method="post" action="currentversion.php?go" id="searchform">
+<input type="submit" name="submit"value="Back to Homepage" />
+<br>
 <?php
 /*3 if statements saying if search button is pushed, it will go and search the databaseby connecting to the database first the running $sql. */
-if(isset($_POST['submit'])){
-	if(isset($_GET['go'])){
-		//if(preg_match("/^[  a-zA-Z]+/", $_POST['search'])){
+if(isset($_POST['submit']))
+{
+	if(isset($_GET['go']))
+	{
+		//if(preg_match("/^[  a-zA-Z]+/", $_POST['search']))
+		//{
 			$search=$_POST['search'];
 			$selected_val = $_POST['searchOptions'];  // Storing Selected Value In Variable
 			echo "Searching results by " .$selected_val; //Displaying Selected Value
@@ -116,7 +122,7 @@ if(isset($_POST['submit'])){
 				$f6=mysql_result($result,$i,"Phone");
 				$f7=mysql_result($result,$i,"NumberOfFamily");
 				$f8=mysql_result($result,$i,"VisitsBefore");
-			?>
+				?>
 
 				<tr>
 					<td>
@@ -150,7 +156,6 @@ if(isset($_POST['submit'])){
 				$i++;
 			}
 		}
-  
 		else
 		{
 			echo  "<p>Please enter another search query</p>";
@@ -161,10 +166,6 @@ if(isset($_POST['submit'])){
 ?>
 
 </table>
-<br>
-<!-- back -->
-<form method="post" action="currentversion.php?go" id="searchform">
-<input type="submit" name="submit"value="Back to Homepage" />
 </form>
 </body>
 </html>

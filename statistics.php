@@ -211,46 +211,5 @@ while ($i < 18)
 ?>
 
 <br>
-<br>
-
-<!-- Display table data. -->
-<table border="1" cellpadding="2" cellspacing="2">
-<tr>
-<td>ID</td>
-<td>Name</td>
-<td>Last Name</td>
-<td>Country of Origin</td>
-<td>Phone</td>
-<td>View Info</td>
-<td>Edit</td>
-<td>Delete</td>
-</tr>
-
-<?php /* LISTS THE AMOUNT OF PEOPLE IN THE DATABASE */
-//query  the database table
-$sql="SELECT * FROM Employees7";
-
-//run  the query against the mysql query function
-//result and num is for the lined up results kreygasm
-$result=mysql_query($sql);
-$num=mysql_num_rows($result);
-echo "Total number of families in database: " . $num;
-
-while($query_data = mysql_fetch_row($result)) {
-
-  echo "<tr>";
-  echo "<td>",$query_data[0], "</td>",
-                 "<td>",$query_data[1], "</td>",
-                 "<td>",$query_data[3], "</td>",
-                 "<td>",$query_data[4], "</td>",
-                 "<td>",$query_data[5], "</td>",
-                 "<td> <a href='viewInfo2.php?idd=$query_data[0]'> View Info </a> </td>",
-                 "<td> <a href='editPage.php?idd=$query_data[0]'> Edit </a> </td>",
-                 "<td> <a href='delete2.php?idd=$query_data[0]'>Delete</a> </td>";
-
-
-  echo "</tr>";
-}
-?>
 </body>
 </html>
